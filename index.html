@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WenQuanXXS_Blog</title>
+    <style>
+        /* 页面基本样式 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 15px;
+            font-size: 18px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* 内容区 */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* 头像区域 */
+        .profile {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .profile h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .profile p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* 内容框 */
+        .content {
+            flex: 3;
+            padding: 20px;
+            display: none;  /* 默认隐藏所有内容框 */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content.active {
+            display: block;  /* 只有激活的内容框才显示 */
+        }
+
+        .content h2 {
+            margin-top: 0;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <a href="javascript:void(0)" onclick="showContent('home')">Home</a>
+        <a href="javascript:void(0)" onclick="showContent('blog')">Blog</a>
+        <a href="javascript:void(0)" onclick="showContent('about')">My Interests</a>
+        <a href="javascript:void(0)" onclick="showContent('contact')">Contact Me</a>
+    </nav>
+
+    <!-- 内容区域 -->
+    <div class="container">
+        <!-- 个人信息和头像 -->
+        <div class="profile">
+            <img src="https://via.placeholder.com/100" alt="头像">
+            <h1>WenQuanXXS</h1>
+            <p>A game player who is interested in interesting techs,also a RnB music enthusiasts</p>
+        </div>
+
+        <!-- 内容框 -->
+        <div id="home" class="content active">
+            <h2>Home</h2>
+            <p>Nothing is here</p>
+        </div>
+
+        <div id="blog" class="content">
+            <h2>Blog</h2>
+            <p>Nothing is here</p>
+        </div>
+
+        <div id="about" class="content">
+            <h2>My Interests</h2>
+            <p>Spring Frame Learning</p>
+            <p>Naruto Mobile Fan</p>
+            <p>love DT,Khalil Fong</p>
+        </div>
+
+        <div id="contact" class="content">
+            <h2>Contact Me</h2>
+            <p>some ways to find me</p>
+            <ul>
+                <li>Email: WenQuanXXS7890@gmail.com</li>
+                <li>Twitter: @WenQuanXXS</li>
+                <li>GitHub: <a href="https://github.com/WenQuanXXS" target="_blank">WenQuanXXS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript 控制显示内容 -->
+    <script>
+        function showContent(contentId) {
+            // 隐藏所有内容
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // 显示指定的内容
+            var activeContent = document.getElementById(contentId);
+            activeContent.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
